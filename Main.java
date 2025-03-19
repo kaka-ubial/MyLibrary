@@ -1,41 +1,35 @@
 public class Main {
     public static void main(String[] args) {
+
+        // ArrayList
         MyArrayList<Integer> list = new MyArrayList<>(Integer.class);
 
         System.out.println("Adicionando elementos:");
-        list.add(10);
-        list.add(20);
-        list.add(30);
-        list.add(40);
-        list.add(50);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
         printList(list);
 
-        System.out.println("\nAdicionando 25 na posição 2:");
         list.add(2, 25);
         printList(list);
 
-        System.out.println("\nRemovendo elemento no índice 3:");
-        list.remove(3);
+        list.remove(4);
         printList(list);
 
-        System.out.println("\nRemovendo o elemento 50:");
         list.remove((Integer) 50);
         printList(list);
 
-        System.out.println("\nAlterando o elemento no índice 1 para 99:");
-        list.set(1, 99);
+        list.set(1, 33);
         printList(list);
 
-        System.out.println("\nObtendo o elemento no índice 2:");
         System.out.println("Elemento: " + list.get(2));
 
-        System.out.println("\nVerificando se a lista contém o número 99:");
-        System.out.println("Contém 99? " + list.contains(99));
+        System.out.println("Contém 33? " + list.contains(33));
 
-        System.out.println("\nObtendo o índice do número 30:");
-        System.out.println("Índice de 30: " + list.indexOf(30));
+        System.out.println("Índice de 30: " + list.indexOf(3));
 
-        System.out.println("\nConvertendo a lista para um array:");
         Object[] array = list.toArray();
         for (Object obj : array) {
             System.out.print(obj + " ");
@@ -45,12 +39,33 @@ public class Main {
         System.out.println("Tamanho final da lista: " + list.size());
     }
 
-    // Método auxiliar para imprimir a lista
     private static <E> void printList(MyArrayList<E> list) {
         System.out.print("Lista: ");
         for (int i = 0; i < list.size(); i++) {
             System.out.print(list.get(i) + " ");
         }
         System.out.println();
+
+        // Pilha
+        MyStack<Integer> stack = new MyStack<>();
+        System.out.println("Testando a Pilha");
+        stack.push(5);
+        stack.push(10);
+        stack.push(15);
+        System.out.println("Topo da pilha: " + stack.top());
+        System.out.println("Removendo: " + stack.pop());
+        System.out.println("Topo após remoção: " + stack.top());
+        System.out.println("Tamanho da pilha: " + stack.size());
+
+        // Fila
+        MyQueue<String> queue = new MyQueue<>();
+        System.out.println("\nTestando a Fila");
+        queue.enqueue("A");
+        queue.enqueue("B");
+        queue.enqueue("C");
+        System.out.println("Frente da fila: " + queue.start());
+        System.out.println("Removendo: " + queue.dequeue());
+        System.out.println("Frente após remoção: " + queue.start());
+        System.out.println("Tamanho da fila: " + queue.size());
     }
 }

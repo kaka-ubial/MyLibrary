@@ -30,7 +30,6 @@ public class MyArrayList<E> {
         if (size == capacity) {
             grow();
         }
-        // Desloca os elementos para a direita
         for (int i = size; i > index; i--) {
             elements[i] = elements[i - 1];
         }
@@ -43,11 +42,10 @@ public class MyArrayList<E> {
             throw new IndexOutOfBoundsException("Índice fora do intervalo válido");
         }
         E removedElement = elements[index];
-        // Desloca os elementos para a esquerda
         for (int i = index; i < size - 1; i++) {
             elements[i] = elements[i + 1];
         }
-        elements[--size] = null; // Evita vazamento de memória
+        elements[--size] = null; 
         return removedElement;
     }
 
